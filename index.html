@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<head>
+  <title>Petition Helper</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/petition-helper.js"></script>
+</head>
+
+<body>
+
+  <p>
+    <strong>Instructions</strong>
+    <ol>
+      <li>Copy and paste rows from the submitted petitions spreadsheet.</li>
+      <li>Click on a petition image to expand it and to set it as active to use
+          the Change Request dropdown.</li>
+      <li>While the image is expanded, you can use the dropdown to add a change
+          request to the row.</li>
+      <li>You can manually enter text without selecting the image, if you'd like.</li>
+      <li>Click on the image again to deselect it.</li>
+      <li>When you are done entering changes, click the "Create Message"
+          to generate a table to copy and paste into the email template.</li>
+      <li>You can also copy the name and email.</li>
+    </ol>
+  </p>
+
+  <fieldset>
+    <label>Paste rows:</label>
+    <textarea id="paste" class="paste"></textarea>
+
+    <label id="show-sample">Sample data (click to toggle)</label>
+    <small>[Sample image from: https://stackoverflow.com/a/20675890]</small>
+    <textarea id="paste-sample" class="paste" readonly>
+      01/01/2020	one	two	email@email.com	four	FirstName	six	seven	eight	nine	http://drive.google.com/uc?export=view&id=0B9o1MNFt5ld1N3k1cm9tVnZxQjg, http://drive.google.com/uc?export=view&id=0B9o1MNFt5ld1N3k1cm9tVnZxQjg  
+01/02/2020	one	two	three	four	five	six	seven	eight	nine	http://drive.google.com/uc?export=view&id=0B9o1MNFt5ld1N3k1cm9tVnZxQjg 
+    </textarea>
+  </fieldset>
+
+  <fieldset>
+    <label>Name:</label>
+    <input id="name" type="text" readonly>
+
+    <label>Email:</label>
+    <input id="email" type="text" readonly>
+  </fieldset>
+
+  <fieldset id="change-requests">
+    <label>Change requests:</label>
+    <select>
+      <option value="">-- Select --</option>
+      <option value="1">Initial cross-out or over-write</option>
+      <option value="2">Initial all changes</option>
+      <option value="3">Add date</option>
+      <option value="4">Change County or Town/City</option>
+      <option value="5">Leave Sheet No. Blank</option>
+    </select>
+  </fieldset>
+
+  <br>
+
+  <table id="data"></table>
+
+  <fieldset id="create-message">
+    <button>Create Message</button>
+  </fieldset>
+</body>
